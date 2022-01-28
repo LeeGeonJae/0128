@@ -1,37 +1,47 @@
 #include <iostream>
-#include <vector>
+#include <vector> //STL
+#include <list>
+#include <deque>
 
 using namespace std;
 
-
-template<typename T>
-T Add(T A, T B)
-{
-	return A + B;
-}
-
-template<typename T, typename Y>
-T Add(T A,Y B)
-{
-	return A + (T)B;
-}
-
-template<typename T1, typename T2, typename T3>
-T1 Add(T1 A, T2 B, T3 C)
-{
-	return A + B + C;
-}
-
-
 int main()
 {
-	//cout << Add<int>(2.5f , 3) << endl;
+	vector<int> Data;
 
-	//cout << Add<float>(2.5f, 3.0f) << endl;
+	for (int i = 1; i <= 100; ++i)
+	{
+		Data.push_back(i);
+	}
 
-	//cout << Add<float, int>(2.5f, 3) << endl;
+	//for (int i = 3; i <= 100; i += 3)
+	//{
+	//	Data.erase(find(Data.begin(), Data.end(), i));
+	//}
 
-	cout << Add<float, int, float>(3.3f, 3, 4.1f) << endl;
+	//for (auto iter = Data.begin(); iter != Data.end(); ++iter)
+	//{
+	//	if (*iter % 3 == 0)
+	//	{
+	//		iter = Data.erase(iter);
+	//	}
+	//}
+
+	Data.clear();
+
+	for (auto iter = Data.begin(); iter != Data.end(); ++iter)
+	{
+		if ((*iter % 10) % 3 == 0)
+		{
+			iter = Data.erase(iter);
+		}
+	}
+
+
+	for (auto iter = Data.rbegin(); iter != Data.rend(); ++iter)
+	{
+		cout << *iter << ", ";
+	}
 
 	return 0;
 }
